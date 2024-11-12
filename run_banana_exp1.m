@@ -3,8 +3,8 @@ close all
 clc
 
 %add folders to the path
-addpath('data')
-%addpath('SMO_MEX')
+addpath('DATA')
+%addpath('MEX')
 addpath('KDA')
 addpath('SVC')
 
