@@ -1,12 +1,13 @@
 clear all
 close all
 clc
-addpath('data')
+addpath('DATA')
 addpath('SVC')
-%addpath('SRKDA')
+addpath('MEX')
 addpath('KDA')
+addpath('data base')
 
-filename='H:\Data_Base\Image Recognition\MNIST\digit_all';
+filename='MNIST';
 
 train=DATA('filename',filename,'convert',{'range data'},'kernel',{'r',4});
 train.load('train','target',{'all','500-c'},'mode','byrand');
