@@ -1,12 +1,13 @@
 clear all
-%close all
+close all
 clc
-addpath('data')
+
+addpath('DATA')
 addpath('SVC')
-%addpath('SRKDA')
+addpath('data base')
 addpath('KDA')
 
-filename='H:\Data_Base\Image Recognition\MNIST\digit_all';
+filename='MNIST';
 
 %to change the kernel function replace {'r',4} (gaussian kernel sigma=4) by
 %{'p',2} (polynomial of degree 2- {'cs',0.015} (exponential chi-square kernel), {'s',1200} for
@@ -21,7 +22,8 @@ test.load('test','target',{'all','200-c'});
          KDA('problem','SVM','codelabel','O','lambda',0.01,'objective','primal'),...
         SVC('objective','primal','lambda',0.01)};
 
-class=[1 3 4 6];
+% remove gradually the digits 0 2 3 5 from the training data set
+class=[1 3 4 6]; 
 remove=[0:0.1:0.8];
 
     for i=1:length(remove)
