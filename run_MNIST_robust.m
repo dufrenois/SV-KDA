@@ -1,12 +1,11 @@
 clear all
 close all
 clc
-addpath('data')
-%addpath('SVC')
-%addpath('SRKDA')
+addpath('DATA')
 addpath('KDA')
+addpath('data base')
 
-filename='H:\Data_Base\Image Recognition\MNIST\digit_all';
+filename='MNIST';
 
 %training data set
 train=DATA('filename',filename,'convert',{'range data'},'kernel',{'r',4});
@@ -19,12 +18,11 @@ test.load('test','target',{'all','200-c'},'mode','byrand');
 
 h=0.01;lambda=0.001;
 
-%KDA('problem','TRC'),...
 method={KDA('problem','SVM','codelabel','O','objective','primal','loss','huber','h',h,'lambda',lambda),...
         KDA('problem','SVM','codelabel','O','objective','primal','loss','L2','lambda',lambda),...
-        KDA('problem','MRR','codelabel','K-1','lambda',lambda)};
+        KDA('problem','MRR','codelabel','Z','lambda',lambda)};
 
-noise=linspace(0.01,0.4,10);
+noise=linspace(0.01,0.4,10); %corrupt labels
 for i=1:length(noise)
     %add noise tot train: noise label
     train_noise=train.corrupt('type','label','mode','all','pct',noise(i));
@@ -55,5 +53,3 @@ grid on
 xlabel('pct of mislabeling','FontSize',18);
 ylabel('accuracy','FontSize',18);
 legend('SV-KDA: Huber loss', 'SV-KDA: L2 loss','MKRR')
-pause
-%save SV-KDA_robust_MNIST ACC SP TI h lambda noise
