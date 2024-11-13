@@ -24,3 +24,7 @@ c) run_MNIST_imbalanced: imbalanced learing experiment: some classes are gradual
 
 d) run_MNIST_robust. We analyse the robustness of SV-KDA with respect to mislabelling. The mislabelling rate is gradually increased from 0 to 40% for all classes in the MNIST data set.  We compare the huber loss function with the L2 loss function. 
 
+Note
+============
+If you use the matlab code here, please cite our paper below:
+References:
