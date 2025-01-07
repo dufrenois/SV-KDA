@@ -27,4 +27,4 @@ d) run_MNIST_robust. We analyse the robustness of SV-KDA with respect to mislabe
 Note
 ============
 If you use the matlab code here, please cite our paper below:
-References:
+References: F Dufrenois and K. Jbilou. A support vector machine formulation for linear and kernel discriminant. Neurocomputing 2024
